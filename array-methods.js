@@ -105,3 +105,145 @@ let destructuredEducation = [...educationTeam[0], ...educationTeam[1], ...educat
 console.log(destructuredEducation)
 
 // ? Advanced Array Methods
+
+let states = [
+    "Illinois",
+    "Wisconsin",
+    "Alabama",
+    "New York",
+    "Vermont",
+    "Indiana", 
+    "Massachussets",
+    "Ohio",
+    "Virginia",
+    "West Virginia",
+    "Pennsylvania",
+    "North Dakota",
+    "South Dakota",
+    "Oregon",
+    "California",
+    "Nevada",
+    "Arizona",
+    "New Mexico",
+    "Florida",
+    "Louisiana",
+    "Texas",
+    "New Hampshire",
+    "Maine",
+    "Rhode Island",
+    "Alaska",
+    "Connecticut",
+    "Montana",
+    "Nebraska",
+    "Arkansas",
+    "Washington",
+    "Iowa",
+    "Kansas",
+    "Oklahoma",
+    "Michigan",
+    "Minnesotta",
+    "Kentucky",
+    "Tennessee",
+    "Idaho",
+    "Utah",
+    "Georgia",
+    "Mississippi",
+    "Missouri",
+    "Colorado",
+    "Delaware",
+    "Hawaii",
+    "Maryland",
+    "North Carolina",
+    "South Carolina",
+    "New Jersey",
+    "Wyoming"
+]
+
+console.log(states.length)
+
+// for (state of states) {
+//     console.log(state)
+// }
+
+/* 
+    ? .forEach()
+    * executes a callback function once for each item in an array
+    * callback has three parameters:
+        * value - the iterator
+        * index - of each iterable
+        * array - the entire array .forEach was called upon
+*/
+
+// states.forEach((state, index, arr) => console.log(state, index, arr))
+
+/* 
+    ! Challenge
+    * create a variable startsWithA and initialize an empty array
+    * use .forEach
+    * check if each state starts with letter a
+    * if it does, push it to the new array
+*/
+
+let startsWithA = []
+let statesWithoutA = []
+
+states.forEach(state => {
+    state[0] === "A" ? startsWithA.push(state) : statesWithoutA.push(state)
+})
+console.log(startsWithA)
+console.log("----------")
+console.log(statesWithoutA)
+
+// TODO: Reintroduce a duplicate state. Think algorithmically how you could find a duplicate.
+
+/* 
+    ? .map()
+    * creates an array with elements resulting from the callback fx
+*/
+
+let statesUpperCase = states.map(state => state.toUpperCase())
+console.log(statesUpperCase)
+
+/* 
+    ? .filter()
+    * creates a new array based on a filter function
+    * only filtered items can be added to an array
+    * cannot have (if/else) where else also gets added
+*/
+
+let weHateA = states.filter(state => !state.toLowerCase().includes("a"))
+console.log(weHateA)
+
+/* 
+    ! Challenge
+    * utilize one of the array methods to raise the grade by 15 points for everyone
+    * those above 90 should not get any points
+*/
+
+let grades = [22, 57, 98, 72, 54, 81, 84, 3]
+
+let newGrades = grades.map(grade => grade >= 90 ? grade : grade + 15)
+console.log(newGrades)
+
+/* 
+    ? .reduce()
+    * calls callback on arr elements with calculation of preceeding element
+    * start vaue is initialValue or [0] of an array on which it's called
+*/
+
+let numbers = [1, 2, 3, 4, 5, 6, 7]
+let initialValue = 5
+let sum = numbers.reduce((prevValue, currValue) => prevValue + currValue, initialValue)
+console.log("HERE", sum)
+
+const array = [15, 16, 17, 18, 19];
+
+function reducer(accumulator, currentValue, index) {
+  const returns = accumulator + currentValue;
+  console.log(
+    `accumulator: ${accumulator}, currentValue: ${currentValue}, index: ${index}, returns: ${returns}`,
+  );
+  return returns;
+}
+
+array.reduce(reducer);
