@@ -51,6 +51,10 @@ const toDo = {
         this.today = []
         this.tomorrow = []
         this.urgent = []
+    },
+
+    remove(item, list) {
+        this[list].filter(i => i !== item)
     }
 }
 
@@ -58,10 +62,13 @@ toDo.add("interview practice", "today")
 toDo.add("get dinner", "today")
 toDo.add("watch john wick", "urgent")
 console.log(toDo)
-toDo.clearToDo()
+// toDo.clearToDo()
 console.log(toDo)
 
 /* 
     ! Challenge
     * build a method that will look for an item in particular list and only remove that item
 */
+
+
+
