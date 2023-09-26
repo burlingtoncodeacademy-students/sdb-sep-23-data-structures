@@ -54,7 +54,7 @@ const toDo = {
     },
 
     remove(item, list) {
-        this[list].filter(i => i !== item)
+        this[list] = this[list].filter(i => i !== item)
     }
 }
 
@@ -69,6 +69,9 @@ console.log(toDo)
     ! Challenge
     * build a method that will look for an item in particular list and only remove that item
 */
+toDo.remove("potato", "today")
+console.log(toDo)
 
-
+// ! Homework Challenge - rebuild the remove method to have some error handling
+// * if item doesn't exist * if list doesn't exist
 
