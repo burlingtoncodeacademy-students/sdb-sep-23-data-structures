@@ -89,3 +89,29 @@ function circleFromDiameter(diameter) {
 
 const myDiaCircle = circleFromDiameter(20)
 console.log(myDiaCircle)
+
+/* 
+    ? Static Factory Methods
+    * do not require instantiation with a new operator
+    * create an instance of our class through its method
+*/
+
+class CircleStaticFactoryFx {
+    static createCircleUsingDiameter(diameter) {
+        return new CircleStaticFactoryFx(diameter / 2)
+    }
+    
+    constructor(radius) {
+        typeof radius === "number"
+            ? this.radius = radius
+            : new Error("Radius must be a number")
+    }
+}
+
+const circleFromClass = new CircleStaticFactoryFx(20)
+// TypeError -> not accessible on instance level -> static method not visible
+// console.log(circleFromClass.createCircleUsingDiameter())
+
+// Accessing CircleStaticFactoryFx using "pass by reference" -> static method is visible
+const diaCircle = CircleStaticFactoryFx.createCircleUsingDiameter(40)
+console.log(diaCircle)
