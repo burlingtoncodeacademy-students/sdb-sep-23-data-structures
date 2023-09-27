@@ -31,6 +31,8 @@ console.log(Learner instanceof Object)
 console.log(khale instanceof Object)
 
 // ? Accessing object instance values
+console.log(new Learner())
+khale.scholarships = 10000
 console.log(khale.scholarships)
 
 // ? Class Expression
