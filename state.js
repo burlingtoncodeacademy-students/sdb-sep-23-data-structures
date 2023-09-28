@@ -56,6 +56,23 @@ function changeState(newState) {
     ? (currentState = newState) && `Light is now ${currentState}`
     : `Transition from ${currentState} to ${newState} not allowed`
 }
-console.log(currentState)
-console.log(changeState("green"))
-console.log(currentState)
+
+console.log(changeState("red"))
+
+let whereAmI = "in"
+
+const stateLines = {
+    in: ["il", "mo", "mi", "oh", "ky",],
+    mo: ["in", "ok", "ks", "il", "ak", "ne", "tn"],
+    il: ["in", "wi", "ia", "mo"]
+}
+
+function whereCanIGo(newPlace) {
+    const available = stateLines[whereAmI]
+    return available.includes(newPlace)
+    ? (whereAmI = newPlace) && `I'm now at ${whereAmI}`
+    : `Transition from ${whereAmI} to ${newPlace} not allowed`
+}
+
+console.log(whereCanIGo("mo"))
+console.log(whereCanIGo("in"))
