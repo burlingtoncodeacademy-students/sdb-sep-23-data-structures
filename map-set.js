@@ -28,3 +28,21 @@ const str = "5.0,15,4.0,25,3.0,10:L10;5.0,18,4.0,42,3.0,12:L20";
     3.0   |   10   |    12
 */
 
+/* 
+    ? Set
+    * object that stores unique values
+    * value may only occur once
+*/
+
+const groceries = new Set(["potato", "dumplings", "chicken"])
+console.log(groceries)
+
+// ? If a value repeats, only the first instance will remain
+const cars = new Set(["porsche", "ferrari", "lamborghini", "porsche"])
+console.log(cars)
+
+// ? Adding data to a Set
+cars.add("porsche") // it won't add values which already exist
+console.log(cars)
+cars.add("skoda")
+console.log(cars)
